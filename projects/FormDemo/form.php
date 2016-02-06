@@ -29,7 +29,7 @@
     </div>
     <!-- Zipcode -->
     <div id="zipContainer" class="form-group">
-      <label for="zip">City</label>
+      <label for="zip">Zip Code</label>
       <input type="text" class="form-control" name="zip" id="zip" placeholder="Zip Code">
     </div> 
     <!-- Special Offers Radio Buttons -->
