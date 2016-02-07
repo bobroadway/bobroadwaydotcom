@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <?php include "bootstrap.php" ?>
+  <?php include "head.php" ?>
     <script type="javascript/text" src="js/resume.js"></script>
     <style>
       h4 {

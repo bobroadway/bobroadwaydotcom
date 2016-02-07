@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>  
+    <?php include "head.php" ?>
     <title>Bo Broadway - Home</title>
-    <?php include "bootstrap.php" ?>
     </head>
   <body>
     <?php 
