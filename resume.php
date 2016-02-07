@@ -1,4 +1,8 @@
-  <?php include "head.php" ?>
+    <?php 
+      $relative = "";
+      $id = "resume";
+      include "head.php" 
+    ?>
     <script type="javascript/text" src="js/resume.js"></script>
     <style>
       h4 {
@@ -14,11 +18,8 @@
     </style>
   </head>
   <title>Bo Broadway - Resume</title>
-  <body>
-    <?php 
-      $relative = "";
-      include "navbar.php";
-    ?>
+  <body onLoad="locationGlow('<?php echo $id ?>');">
+    <?php include "navbar.php"; ?>
     <div class="container">
       <h1><strong>BO</strong> BROADWAY</h1>
       <span class="text-muted">3117 Muir Field Rd, Madison, WI, 53719<br />
@@ -138,6 +139,7 @@
           </tr>
         </table>
       </div>
-    </div>
+    </div>'
+    <br />
   </body>
 </html>
