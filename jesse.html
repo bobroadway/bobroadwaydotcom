@@ -34,7 +34,7 @@
     
     <script>
     $(function () {
-        $("#test").submit(function () {
+        $("#test").submit(function (event) {
             event.preventDefault();
             
             $("#spitBucket").html($("#something").val());
