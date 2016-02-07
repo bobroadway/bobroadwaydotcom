@@ -8,10 +8,10 @@
     <?php include "navbar.php"; ?> 
     <div class="container">
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-sm-6">
           <h1>Greetings!</h1>
         </div>
-        <div class="col-xs-6">
+        <div class="col-sm-6">
           <h5 id="currentdate" class="text-muted text-right text-nowrap"></h5>
         </div>
       </div>
