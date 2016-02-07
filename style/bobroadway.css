@@ -1,4 +1,4 @@
-/* Stylesheet for custom rules outside of bootstrap */
+/* Stylesheet for bobroadway.com custom rules outside of bootstrap */
 
 h4 {
   margin-bottom: 0;
@@ -15,4 +15,13 @@ hr {
 .resume-head {
   padding: 0;
   background-color: white;
+}
+
+table {
+  width: 90%;
+  margin: 10px;
+}
+
+td {
+  vertical-align: top;
 }

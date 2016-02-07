@@ -1,5 +1,4 @@
     <?php 
-      $relative = "";
       $id = "resume";
       include "head.php" 
     ?>
@@ -49,8 +48,8 @@
       <h4><button class="btn btn-lg resume-head"
                   onClick="$('#school').slideToggle();"><strong>SCHOOL</strong></button></h4>
       <hr />
-      <div id="school" class="container">
-        <table width="90%">
+      <div id="school">
+        <table>
           <tr>
             <td><strong>Madison College</strong></td>
             <td class="text-right text-nowrap"><strong>Jan. 2015 - Present</strong></td>
@@ -87,8 +86,8 @@
       <h4><button class="btn  btn-lg resume-head"
                   onClick="$('#work').slideToggle();"><strong>WORK EXPERIENCE</strong></button></h4>
       <hr />
-      <div id="work" class="container">
-        <table width="90%">
+      <div id="work">
+        <table>
           <tr>
             <td><strong>iHeartMedia, Inc.</strong></td>
             <td class="text-right"><strong>2009 - 2014</strong></td>
@@ -131,7 +130,7 @@
           </tr>
           <tr>
             <td>Grocery Manager</td>
-            <td class="text-muted text-right">Plymouth, WI</td>
+            <td class="text-muted text-right text-nowrap">Plymouth, WI</td>
           </tr>
           <tr>
             <td>
