@@ -73,7 +73,8 @@
             <td><span class="pull-right"><strong>1999 - 2003</strong></span></td>
           </tr>
           <tr>
-            <td colspan="2" class="text-muted"><span class="pull-right">Plymouth, WI</span></td>
+            <td></td>
+            <td class="text-muted"><span class="pull-right">Plymouth, WI</span></td>
           </tr>
         </table>
       </div>
@@ -96,7 +97,7 @@
               <ul>
                 <li>Produced all in-house station audio production pieces.</li>
                 <li>Assisted multiple morning shows with production, promotion 
-                <br />and web presence including social media and blog updates.</li>
+                and web presence including social media and blog updates.</li>
                 <li>Board Operator for live shows when needed.</li>
               </ul>
             </td>
@@ -132,7 +133,7 @@
               <ul>
                 <li>Ordering, Stocking, and Managing Inventory.</li>
                 <li>Oversaw employees of the Grocery Department.</li>
-                <li>Manager On Duty to assist with any of the store needs <br />
+                <li>Manager On Duty to assist with any of the store needs
                 which required versatile knowledge of the entire store.</li>
               </ul>
             </td>
