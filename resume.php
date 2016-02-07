@@ -4,31 +4,19 @@
       include "head.php" 
     ?>
     <script type="javascript/text" src="js/resume.js"></script>
+    
+    <!-- For Slide Down Transition Effect -->
     <style>
-      h4 {
-          margin-bottom: 0;
-      }
-      hr {
-          margin-top: 0;
-          border-color: #333;
-          border: 0; 
-          height: 1px; 
-          background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-      }
-      .btn-lg {
-          padding: 0;
-          background-color: white;
-      }
-	  .container {
-		  display: none;
-	  }
+    .container {
+      display: none;
+    }
     </style>
+	  <script>
+	  $(function () {
+      $(".container").slideDown(2000);
+    });
+	  </script>
 	
-	<script>
-	$(function () {
-		$(".container").slideDown();
-	});
-	</script>
   </head>
   <title>Bo Broadway - Resume</title>
   <body onLoad="locationGlow('<?php echo $id ?>');">
@@ -40,7 +28,7 @@
       <strong>EMAIL</strong> broadway.bo@gmail.com</span><br /><br />
     </div>
     <div class="container">
-      <h4><button class="btn  btn-lg"
+      <h4><button class="btn btn-lg resume-head"
                   onClick="$('#objective').slideToggle();"><strong>OBJECTIVE</strong></button></h4>
       <hr />
       <p id="objective">To turn a hobby into a career. Beginning with a college degree and an 
@@ -48,7 +36,7 @@
       toward becoming an experienced software engineer.</p>
     </div>
     <div class="container">
-      <h4><button class="btn  btn-lg"
+      <h4><button class="btn btn-lg resume-head"
                   onClick="$('#skills').slideToggle();"><strong>SKILLS</strong></button></h4>
       <hr />
       <p id="skills">College-level programming experience with Java, HTML5, CSS, 
@@ -58,7 +46,7 @@
       AND on a team, and consistently meeting project deadlines from week to week.</p>
     </div>
     <div class="container">
-      <h4><button class="btn btn-lg"
+      <h4><button class="btn btn-lg resume-head"
                   onClick="$('#school').slideToggle();"><strong>SCHOOL</strong></button></h4>
       <hr />
       <div id="school" class="container">
@@ -96,7 +84,7 @@
       </div>
     </div>
     <div class="container">
-      <h4><button class="btn  btn-lg"
+      <h4><button class="btn  btn-lg resume-head"
                   onClick="$('#work').slideToggle();"><strong>WORK EXPERIENCE</strong></button></h4>
       <hr />
       <div id="work" class="container">
