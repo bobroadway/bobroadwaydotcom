@@ -15,6 +15,10 @@
           height: 1px; 
           background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
       }
+      .btn-lg {
+          padding: 0;
+          background-color: white;
+      }
     </style>
   </head>
   <title>Bo Broadway - Resume</title>
@@ -27,14 +31,16 @@
       <strong>EMAIL</strong> broadway.bo@gmail.com</span><br /><br />
     </div>
     <div class="container">
-      <h4><strong>OBJECTIVE</strong></h4>
+      <h4><button class="btn  btn-lg"
+                  onClick="$('#objective').slideToggle();"><strong>OBJECTIVE</strong></button></h4>
       <hr />
       <p id="objective">To turn a hobby into a career. Beginning with a college degree and an 
       entry-level development position, apply a passion for learning and improvement
       toward becoming an experienced software engineer.</p>
     </div>
     <div class="container">
-      <h4><strong>SKILLS</strong></h4>
+      <h4><button class="btn  btn-lg"
+                  onClick="$('#skills').slideToggle();"><strong>SKILLS</strong></button></h4>
       <hr />
       <p id="skills">College-level programming experience with Java, HTML5, CSS, 
       JavaScript, PHP, and XML. Including database experience using Access, 
@@ -43,17 +49,18 @@
       AND on a team, and consistently meeting project deadlines from week to week.</p>
     </div>
     <div class="container">
-      <h4><strong>SCHOOL</strong></h4>
+      <h4><button class="btn btn-lg"
+                  onClick="$('#school').slideToggle();"><strong>SCHOOL</strong></button></h4>
       <hr />
       <div id="school" class="container">
         <table width="90%">
           <tr>
             <td><strong>Madison College</strong></td>
-            <td><span class="pull-right"><strong>Jan. 2015 - Present</strong></span></td>
+            <td class="text-right text-nowrap"><strong>Jan. 2015 - Present</strong></td>
           </tr>
           <tr>
             <td>In Progress: Associate's Degree in Web Software Developoment</td>
-            <td class="text-muted"><span class="pull-right">Madison, WI</span></td>
+            <td class="text-muted text-right">Madison, WI</td>
           </tr>
           <tr>
             <td>Expected Graduation: Dec. 2016</td>
@@ -61,36 +68,37 @@
           <tr><td><br /></td></tr>
           <tr>
             <td><strong>Madison Media Institute</strong></td>
-            <td><span class="pull-right"><strong>2004 - 2007</strong></span></td>
+            <td class="text-right"><strong>2004 - 2007</strong></td>
           </tr>
           <tr>
             <td>Associate's Degree in Audio Production</td>
-            <td class="text-muted"><span class="pull-right">Madison, WI</span></td>
+            <td class="text-muted text-right">Madison, WI</td>
           </tr>
           <tr><td><br /></td></tr>
           <tr>
             <td><strong>Plymouth High School</strong></td>
-            <td><span class="pull-right"><strong>1999 - 2003</strong></span></td>
+            <td class="text-right"><strong>1999 - 2003</strong></td>
           </tr>
           <tr>
             <td></td>
-            <td class="text-muted"><span class="pull-right">Plymouth, WI</span></td>
+            <td class="text-muted text-right">Plymouth, WI</td>
           </tr>
         </table>
       </div>
     </div>
     <div class="container">
-      <h4><strong>WORK EXPERIENCE</strong></h4>
+      <h4><button class="btn  btn-lg"
+                  onClick="$('#work').slideToggle();"><strong>WORK EXPERIENCE</strong></button></h4>
       <hr />
       <div id="work" class="container">
         <table width="90%">
           <tr>
             <td><strong>iHeartMedia, Inc.</strong></td>
-            <td><span class="pull-right"><strong>2009 - 2014</strong></span></td>
+            <td class="text-right"><strong>2009 - 2014</strong></td>
           </tr>
           <tr>
             <td>Imaging Director/Producer and Morning Show Producer</td>
-            <td class="text-muted"><span class="pull-right">Madison, WI</span></td>
+            <td class="text-muted text-right">Madison, WI</td>
           </tr>
           <tr>
             <td>
@@ -105,11 +113,11 @@
           <tr><td><br /></td></tr>
           <tr>
             <td><strong>CapTel</strong></td>
-            <td><span class="pull-right"><strong>2009 - 2011</strong></span></td>
+            <td class="text-right"><strong>2009 - 2011</strong></td>
           </tr>
           <tr>
             <td>Captioning Assistant</td>
-            <td class="text-muted"><span class="pull-right">Madison, WI</span></td>
+            <td class="text-muted text-right">Madison, WI</td>
           </tr>
           <tr>
             <td>
@@ -122,11 +130,11 @@
           <tr><td><br /></td></tr>
           <tr>
             <td><strong>Copps Food Center</strong></td>
-            <td><span class="pull-right"><strong>2004 - 2009</strong></span></td>
+            <td class="text-right"><strong>2004 - 2009</strong></td>
           </tr>
           <tr>
             <td>Grocery Manager</td>
-            <td class="text-muted"><span class="pull-right">Plymouth, WI</span></td>
+            <td class="text-muted text-right">Plymouth, WI</td>
           </tr>
           <tr>
             <td>

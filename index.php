@@ -20,13 +20,13 @@
       <table width="90%">
         <tr>
           <td><h1>Greetings!</h1></td>
-          <td><span class="pull-right"><h3 id="currentdate" class="text-muted"></h3></span></td>
+          <td><h3 id="currentdate" class="text-muted text-right"></h3></td>
         </tr>
       </table>
       <hr />
-      <p>Welcome to www.BoBroadway.com, the host site for my resume and project portfolio!</p>
-      <p class="text-center">Please take a look!</p>
+      <p class="text-center">Welcome to www.BoBroadway.com, the host site for my resume and project portfolio!</p>
       <br />
+      <p class="text-center">Please take a look!</p>
     </div>
     <div class="container text-center">
       <a onclick="" class="btn btn-primary btn-lg" href="resume.php">Resume</a>
