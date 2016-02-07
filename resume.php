@@ -25,6 +25,7 @@
   </head>
   <title>Bo Broadway - Resume</title>
   <body>
+    <?php include "header.php" ?>
     <div class="container">
       <h1><strong>BO</strong> BROADWAY</h1>
       <span class="text-muted">3117 Muir Field Rd, Madison, WI, 53719<br />
