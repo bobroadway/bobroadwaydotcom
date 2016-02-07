@@ -19,7 +19,16 @@
           padding: 0;
           background-color: white;
       }
+	  .container {
+		  display: none;
+	  }
     </style>
+	
+	<script>
+	$(function () {
+		$(".container").slideDown();
+	});
+	</script>
   </head>
   <title>Bo Broadway - Resume</title>
   <body onLoad="locationGlow('<?php echo $id ?>');">
