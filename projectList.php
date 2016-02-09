@@ -7,13 +7,13 @@
         <td><a class="btn btn-primary btn-default" 
                href="https://github.com/bobroadway/bobroadwaydotcom"
                target="_blank"
-               role="button">Go!</a></td>
+               role="button">View</a></td>
       </tr>
       <tr>
         <td>Simple PHP Form</td>
         <td><a class="btn btn-primary btn-default"
                href="projects/FormDemo/createUser.php"
-               role="button">Go!</a></td>
+               role="button">View</a></td>
       </tr>
     </table>
 </div>
