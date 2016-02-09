@@ -1,10 +1,5 @@
-    <?php 
-      $id = "resume";
-      include "head.php" 
-    ?>
-    <script type="javascript/text" src="js/resume.js"></script>
-    
-    <!-- For Slide Down Transition Effect -->
+    <?php include "head.php"; ?>
+    <!-- For Slide Down Transition Effect
     <style>
     .container {
       display: none;
@@ -14,11 +9,11 @@
 	  $(function () {
       $(".container").slideDown(2000);
     });
-	  </script>
-	
+	  </script> -->
+	  <script type="javascript/text" src="js/resume.js"></script>
   </head>
   <title>Bo Broadway - Resume</title>
-  <body onLoad="locationGlow('<?php echo $id ?>');">
+  <body onLoad="locationGlow('resume');">
     <?php include "navbar.php"; ?>
     <div class="container">
       <h1><strong>BO</strong> BROADWAY</h1>

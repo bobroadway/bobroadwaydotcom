@@ -1,10 +1,7 @@
-    <?php 
-      $id = "index";
-      include "head.php"; 
-    ?>
+    <?php include "head.php"; ?>
     <title>Bo Broadway - Home</title>
-    </head>
-  <body onLoad="locationGlow('<?php echo $id ?>'); displayDate();">
+  </head>
+  <body onLoad="locationGlow('index'); displayDate();">
     <?php include "navbar.php"; ?> 
     <div class="container">
       <div class="row">
@@ -22,7 +19,7 @@
     </div>
     <div class="container text-center">
       <a class="btn btn-primary btn-lg" href="resume.php">Resume</a>
-      <a class="btn btn-primary btn-lg" href="projectDemo.php">Projects</a>
+      <a class="btn btn-primary btn-lg" href="projects.php">Projects</a>
     </div>
   </body>
 </html>
