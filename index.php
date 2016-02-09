@@ -2,7 +2,10 @@
     <title>Bo Broadway - Home</title>
   </head>
   <body onLoad="locationGlow('index'); displayDate();">
-    <?php include "navbar.php"; ?> 
+    <?php 
+      $relative = "";
+      include "navbar.php"; 
+    ?> 
     <div class="container">
       <div class="row">
         <div class="col-sm-6">

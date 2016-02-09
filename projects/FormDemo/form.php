@@ -1,4 +1,4 @@
-<div id="testid" class="container">
+<div class="container">
   <form id="form" onsubmit="return validateForm();" action="createUser.php" method="post">
     <input type="hidden" name="flowCheck" value="valid" />
     <!-- Email Address -->

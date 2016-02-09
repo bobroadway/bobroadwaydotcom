@@ -7,12 +7,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
       </button>
-      <a id="index" class="navbar-brand" href="index.php">Bo Broadway</a>
+      <a id="index" class="navbar-brand" href="<?php echo $relative; ?>index.php">Bo Broadway</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse" aria-expanded="false">
       <ul class="nav navbar-nav">
-        <li><a id="resume" href="resume.php">Resume</a></li>
-        <li><a id="projects" href="projects.php">Projects</a></li>
+        <li><a id="resume" href="<?php echo $relative; ?>resume.php">Resume</a></li>
+        <li><a id="projects" href="<?php echo $relative; ?>projects.php">Projects</a></li>
       </ul>
     </div>
   </div>

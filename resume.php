@@ -14,7 +14,10 @@
   </head>
   <title>Bo Broadway - Resume</title>
   <body onLoad="locationGlow('resume');">
-    <?php include "navbar.php"; ?>
+    <?php 
+      $relative = "";
+      include "navbar.php"; 
+    ?>
     <div class="container">
       <h1><strong>BO</strong> BROADWAY</h1>
       <span class="text-muted">3117 Muir Field Rd, Madison, WI, 53719<br />
