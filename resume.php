@@ -128,7 +128,7 @@
           </tr>
           <tr>
             <td>Grocery Manager</td>
-            <td class="text-muted text-right text-nowrap">Plymouth, WI</td>
+            <td class="text-muted text-right text-nowrap">Madison, WI</td>
           </tr>
           <tr>
             <td>
