@@ -1,0 +1,15 @@
+/* 
+  CSS Style Sheet for snake.php 
+  Author: Bo Broadway Date: 2/11/16 
+*/
+
+canvas {
+    display: block;
+    position: absolute;
+    border: 1px solid black;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}

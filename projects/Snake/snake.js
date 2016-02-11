@@ -1,3 +1,10 @@
+/* 
+  JavaScript code for snake.php 
+  Author: Bo Broadway Date: 2/11/16 
+*/
+
+
+
 // Constants
 var COLUMNS = 26;
 var ROWS = 26;
@@ -10,6 +17,12 @@ var LEFT = 0;
 var UP = 1;
 var RIGHT = 2;
 var DOWN = 3;
+// Key Controls
+var KEY_LEFT = 37;
+var KEY_UP = 38;
+var KEY_RIGHT = 39;
+var KEY_DOWN = 40;
+
 
 // Grid
 var grid = {
@@ -57,6 +70,7 @@ var snake = {
         this.insert(x, y);
     },
     
+    // function to track the snake's current coordinates
     insert: function(x, y) {
         // place x and y to the front/beginning of the _queue array 
         this._queue.unshift({x:x, y:y})
@@ -64,6 +78,7 @@ var snake = {
         this.last = this._queue[0];    
     },
     
+    // function to determine the next tile of the snake to become 'EMPTY' (tail)
     remove: function() {
         return this._queue.pop(); // return the now removed last item of the array
     }
@@ -112,6 +127,14 @@ function main() {
     frames = 0;
     keystate = {};
     
+    // Controlling the snake
+    document.addEventListener("keydown", function(event) {
+        keystate[event.keyCode] = true;
+    });
+    document.addEventListener("keyup", function(event) {
+        delete keystate[event.keyCode];
+    });
+    
     // start animation
     init();
     // continue animation
@@ -123,7 +146,7 @@ function init() {
     grid.init(EMPTY, COLUMNS, ROWS);
     
     // create snake start position and state
-    var startPosition = {x:Math.floor(COLUMNS/2), y:ROWS-1};
+    var startPosition = {x:Math.floor(COLUMNS/2), y:ROWS-1}; // middle, bottom
     snake.init(UP, startPosition.x, startPosition.y);
     grid.set(SNAKE, startPosition.x, startPosition.y);
     
@@ -138,9 +161,57 @@ function loop() {
     window.requestAnimationFrame(loop, canvas);
 }
 
-// function increment 'frames' variable
+// function to update the current state of the canvas/grid
 function update() {
     frames++;
+    
+    if (keystate[KEY_LEFT]) snake.direction = LEFT;
+    if (keystate[KEY_UP]) snake.direction = UP;
+    if (keystate[KEY_RIGHT]) snake.direction = RIGHT;
+    if (keystate[KEY_DOWN]) snake.direction = DOWN;
+    
+    if (frames % 5 === 0) { // every 5 frames
+        // initialize newX/newY to the most recently added-to-the-front of the grid coordinates
+        var newX = snake.last.x;
+        var newY = snake.last.y;
+        // so we can then:
+        // increment or de-increment by one, an axis based on 'direction'
+        switch (snake.direction) {
+            case LEFT:
+                newX--;
+                break;
+            case UP:
+                newY--;
+                break;
+            case RIGHT:
+                newX++;
+                break;
+            case DOWN:
+                newY++;
+                break;
+        }
+        
+        // if the snake hits the wall
+        if (0 > newX || newX > grid.width-1 || 0 > newY || newY > grid.height-1) {
+            // reboot
+            return init();
+        }
+            
+        // set the final square as the 'tail' square
+        var tail = snake.remove(); 
+        // set it to 'empty'
+        grid.set(EMPTY, tail.x, tail.y);
+        /*
+            tail.x = newX;
+            tail.y = newY;
+            grid.set(SNAKE, tail.x, tail.y);
+            snake.insert(tail.x, tail.y);
+        */
+        // fill the snake ID into the new coordinates (where the snake is next)
+        grid.set(SNAKE, newX, newY);
+        // track the snake's new 'front' position
+        snake.insert(newX, newY);
+    }
 }
 
 // function to draw the current state of the game canvas
