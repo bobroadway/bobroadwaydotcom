@@ -15,5 +15,11 @@
                href="projects/FormDemo/createUser.php"
                role="button">View</a></td>
       </tr>
+      <tr>
+        <td>Snake Game - Learning Project</td>
+        <td><a class="btn btn-primary btn-default"
+               href="projects/Snake/snake.php"
+               role="button">View</a></td>
+      </tr>
     </table>
 </div>

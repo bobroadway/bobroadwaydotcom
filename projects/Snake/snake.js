@@ -3,8 +3,6 @@
   Author: Bo Broadway Date: 2/11/16 
 */
 
-
-
 // Constants
 var COLUMNS = 26;
 var ROWS = 26;
@@ -22,7 +20,6 @@ var KEY_LEFT = 37;
 var KEY_UP = 38;
 var KEY_RIGHT = 39;
 var KEY_DOWN = 40;
-
 
 // Grid
 var grid = {
@@ -264,5 +261,5 @@ function draw() {
     // show score
     context.fillStyle = "black";
     context.fillText("SCORE: " + score, 10, canvas.height-10); // bottom left
-    document.getElementById("highScore").innerHTML = "<h1>HIGH SCORE: <br />" + highScore + "</h1>";
+    document.getElementById("highScore").innerHTML = "<h1>HIGH SCORE: " + highScore + "</h1>";
 }

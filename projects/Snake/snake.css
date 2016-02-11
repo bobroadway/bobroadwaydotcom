@@ -5,18 +5,25 @@
 
 body {
     background-color: black;
-    width: 1000px;
+}
+
+div#highScore {
+    text-align: center;
+    width: 1050px;
     margin: auto;
+    padding: 0;
 }
 
 h1 {
     color: white;
     font-family: "Lucida Console", Monaco, monospace;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 canvas {
     display: block;
-    position: absolute;
     border: 1px solid black;
     margin: auto;
     top: 0;
