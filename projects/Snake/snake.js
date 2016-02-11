@@ -111,6 +111,8 @@ var canvas;
 var context;
 var keystate;
 var frames;
+var score;
+var highScore = 0;
 
 function main() {
     // create canvas element
@@ -122,6 +124,9 @@ function main() {
     context = canvas.getContext("2d");
     // place the created canvas element within the body
     document.body.appendChild(canvas);
+    
+    // score font
+    context.font = "20px Courier New";
     
     // initialize animation state
     frames = 0;
@@ -142,6 +147,7 @@ function main() {
 }
 
 function init() {
+    score = 0;
     // create grid
     grid.init(EMPTY, COLUMNS, ROWS);
     
@@ -163,12 +169,14 @@ function loop() {
 
 // function to update the current state of the canvas/grid
 function update() {
+    // increment frames
     frames++;
     
-    if (keystate[KEY_LEFT]) snake.direction = LEFT;
-    if (keystate[KEY_UP]) snake.direction = UP;
-    if (keystate[KEY_RIGHT]) snake.direction = RIGHT;
-    if (keystate[KEY_DOWN]) snake.direction = DOWN;
+    // set snake direction from key inputs, can not set new direction if opposite
+    if (keystate[KEY_LEFT] && snake.direction !== RIGHT) snake.direction = LEFT;
+    if (keystate[KEY_UP] && snake.direction !== DOWN) snake.direction = UP;
+    if (keystate[KEY_RIGHT] && snake.direction !== LEFT) snake.direction = RIGHT;
+    if (keystate[KEY_DOWN] && snake.direction !== UP) snake.direction = DOWN;
     
     if (frames % 5 === 0) { // every 5 frames
         // initialize newX/newY to the most recently added-to-the-front of the grid coordinates
@@ -192,7 +200,9 @@ function update() {
         }
         
         // if the snake hits the wall
-        if (0 > newX || newX > grid.width-1 || 0 > newY || newY > grid.height-1) {
+        if (0 > newX || newX > grid.width-1 || 0 > newY || newY > grid.height-1
+        // or hits itself
+            || grid.get(newX, newY) === SNAKE) {
             // reboot
             return init();
         }
@@ -201,7 +211,11 @@ function update() {
         if (grid.get(newX, newY) === FRUIT) {
             // set current coordinates as a new 'tail' square
             var tail = {x:newX, y:newY};
-            // place new food
+            // update score, and high score if applicable
+            score++;
+            if (score > highScore) {
+                highScore = score;
+            }
             setFood();
         } else {   
             // set the final square as the 'tail' square
@@ -236,7 +250,7 @@ function draw() {
                     context.fillStyle = "white";
                     break;
                 case SNAKE:
-                    context.fillStyle = "blue";
+                    context.fillStyle = "green";
                     break;
                 case FRUIT:
                     context.fillStyle = "red";
@@ -246,6 +260,9 @@ function draw() {
             context.fillRect(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
         }
     }
+    
+    // show score
+    context.fillStyle = "black";
+    context.fillText("SCORE: " + score, 10, canvas.height-10); // bottom left
+    document.getElementById("highScore").innerHTML = "<h1>HIGH SCORE: <br />" + highScore + "</h1>";
 }
-
-// main();

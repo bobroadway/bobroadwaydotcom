@@ -11,9 +11,8 @@
       <script type="text/javascript" src="snake.js"></script>
   </head>
   <body onLoad="main();">
-
-  
-  
+    <div id="highScore">
+    </div>
   </body>
 </html>
 

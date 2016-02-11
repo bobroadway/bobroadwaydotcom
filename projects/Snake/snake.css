@@ -3,6 +3,17 @@
   Author: Bo Broadway Date: 2/11/16 
 */
 
+body {
+    background-color: black;
+    width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    color: white;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
 canvas {
     display: block;
     position: absolute;
