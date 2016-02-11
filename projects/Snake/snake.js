@@ -196,17 +196,25 @@ function update() {
             // reboot
             return init();
         }
-            
-        // set the final square as the 'tail' square
-        var tail = snake.remove(); 
-        // set it to 'empty'
-        grid.set(EMPTY, tail.x, tail.y);
+        
+        // if the snake hits the FRUIT
+        if (grid.get(newX, newY) === FRUIT) {
+            // set current coordinates as a new 'tail' square
+            var tail = {x:newX, y:newY};
+            // place new food
+            setFood();
+        } else {   
+            // set the final square as the 'tail' square
+            var tail = snake.remove(); 
+            // set it to 'empty'
+            grid.set(EMPTY, tail.x, tail.y);
         /*
             tail.x = newX;
             tail.y = newY;
             grid.set(SNAKE, tail.x, tail.y);
             snake.insert(tail.x, tail.y);
         */
+        }
         // fill the snake ID into the new coordinates (where the snake is next)
         grid.set(SNAKE, newX, newY);
         // track the snake's new 'front' position
