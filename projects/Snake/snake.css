@@ -7,6 +7,10 @@ body {
     background-color: black;
 }
 
+.navbar {
+    margin-bottom: 0;
+}
+
 div#highScore {
     text-align: center;
     width: 1050px;
