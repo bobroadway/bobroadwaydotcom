@@ -18,6 +18,7 @@
     <title>Form Demo</title>
   </head>
     <body>
+      <?php include_once("analyticsTracking.php") ?>
       <?php 
         $relative = "../../";
         include "{$relative}navbar.php"; 

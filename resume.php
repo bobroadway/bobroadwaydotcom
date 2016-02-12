@@ -14,6 +14,7 @@
   </head>
   <title>Bo Broadway - Resume</title>
   <body onLoad="locationGlow('resume');">
+    <?php include_once("analyticsTracking.php") ?>
     <?php 
       $relative = "";
       include "navbar.php"; 

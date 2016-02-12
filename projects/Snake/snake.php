@@ -23,6 +23,7 @@
     <title>Snake!</title>
   </head>
   <body onLoad="main();">
+    <?php include_once("analyticsTracking.php") ?>
     <?php 
         $relative = "../../";
         include "{$relative}navbar.php"; 

@@ -2,6 +2,7 @@
     <title>Bo Broadway - Home</title>
   </head>
   <body onLoad="locationGlow('index'); displayDate();">
+    <?php include_once("analyticsTracking.php") ?>
     <?php 
       $relative = "";
       include "navbar.php"; 
@@ -19,6 +20,7 @@
       <p class="text-center">Welcome to www.BoBroadway.com, the host site for my resume and project portfolio!</p>
       <br />
       <p class="text-center">Please take a look!</p>
+      <br />
     </div>
     <div class="container text-center">
       <a class="btn btn-primary btn-lg" href="resume.php">Resume</a>
