@@ -113,6 +113,7 @@ var highScore = 0;
 
 function main() {
     if ($( window ).width() < 768) {
+        // error for a browser window that is too small
         div = document.createElement("div");
         div.id = "sizeError";
         document.body.appendChild(div);

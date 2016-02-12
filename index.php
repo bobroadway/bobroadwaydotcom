@@ -23,7 +23,7 @@
       <br />
     </div>
     <div class="container text-center">
-      <a class="btn btn-primary btn-lg" href="resume.php">Resume</a>
+      <a class="btn btn-primary btn-lg" href="resume.php">Resume</a>&nbsp;
       <a class="btn btn-primary btn-lg" href="projects.php">Projects</a>
     </div>
   </body>
