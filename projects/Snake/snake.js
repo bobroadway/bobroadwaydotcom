@@ -112,35 +112,44 @@ var score;
 var highScore = 0;
 
 function main() {
-    // create canvas element
-    canvas = document.createElement("canvas");
-    // set canvas element's attributes
-    canvas.width = COLUMNS * 20; // 20px per column
-    canvas.height = ROWS * 20; // 20px per row
-    // set context to a 2d graphic type
-    context = canvas.getContext("2d");
-    // place the created canvas element within the body
-    document.body.appendChild(canvas);
-    
-    // score font
-    context.font = "20px Courier New";
-    
-    // initialize animation state
-    frames = 0;
-    keystate = {};
-    
-    // Controlling the snake
-    document.addEventListener("keydown", function(event) {
-        keystate[event.keyCode] = true;
-    });
-    document.addEventListener("keyup", function(event) {
-        delete keystate[event.keyCode];
-    });
-    
-    // start animation
-    init();
-    // continue animation
-    loop();
+    if ($( window ).width() < 768) {
+        div = document.createElement("div");
+        div.id = "sizeError";
+        document.body.appendChild(div);
+        div.innerHTML = 
+            "<h2>I'm afraid your browser window is too small to load the game.</h2>"
+            + "<a class='btn btn-primary btn-lg' href='../../projects.php'>Back to Projects</a>";
+    } else {
+        // create canvas element
+        canvas = document.createElement("canvas");
+        // set canvas element's attributes
+        canvas.width = COLUMNS * 20; // 20px per column
+        canvas.height = ROWS * 20; // 20px per row
+        // set context to a 2d graphic type
+        context = canvas.getContext("2d");
+        // place the created canvas element within the body
+        document.body.appendChild(canvas);
+        
+        // score font
+        context.font = "20px Courier New";
+        
+        // initialize animation state
+        frames = 0;
+        keystate = {};
+        
+        // Controlling the snake
+        document.addEventListener("keydown", function(event) {
+            keystate[event.keyCode] = true;
+        });
+        document.addEventListener("keyup", function(event) {
+            delete keystate[event.keyCode];
+        });
+        
+        // start animation
+        init();
+        // continue animation
+        loop();
+    }
 }
 
 function init() {

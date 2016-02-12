@@ -13,13 +13,28 @@ body {
 
 div#highScore {
     text-align: center;
-    width: 1050px;
+    width: 100%;
     margin: auto;
     padding: 0;
 }
 
+div#sizeError {
+    color: white;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border: 1px solid white;
+}
+    
+h2 {
+    font-family: "Lucida Console", Monaco, monospace;
+}    
+
 h1 {
     color: white;
+    text-align: center;
     font-family: "Lucida Console", Monaco, monospace;
     padding: 0;
     margin-top: 0;
