@@ -17,10 +17,10 @@
     <title>Form Results</title>
   </head>
   <body>
-    <?php include_once("analyticsTracking.php") ?>
     <?php 
-      $relative = "../../";
-      include "{$relative}navbar.php"; 
+        $relative = "../../";
+        include "{$relative}navbar.php";
+        include_once("{$relative}analyticsTracking.php"); 
     ?>
     <div class="container" width="60%">
       <?php

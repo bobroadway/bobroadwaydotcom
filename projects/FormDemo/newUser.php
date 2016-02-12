@@ -17,17 +17,17 @@
     
     <title>Form Demo</title>
   </head>
-    <body>
-      <?php include_once("analyticsTracking.php") ?>
-      <?php 
+  <body>
+    <?php 
         $relative = "../../";
-        include "{$relative}navbar.php"; 
-      ?>
-      <div class="container">
-        <h2>Simple PHP Form Demo</h2>
-        <hr />
-      </div>
-      <?php include "form.php"; ?>
-      <br />
-     </body>
+        include "{$relative}navbar.php";
+        include_once("{$relative}analyticsTracking.php"); 
+    ?>
+    <div class="container">
+      <h2>Simple PHP Form Demo</h2>
+      <hr />
+    </div>
+    <?php include "form.php"; ?>
+    <br />
+   </body>
 </html>

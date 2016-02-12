@@ -23,10 +23,10 @@
     <title>Snake!</title>
   </head>
   <body onLoad="main();">
-    <?php include_once("analyticsTracking.php") ?>
     <?php 
         $relative = "../../";
-        include "{$relative}navbar.php"; 
+        include "{$relative}navbar.php";
+        include_once("{$relative}analyticsTracking.php"); 
     ?>
     <div id="highScore">
     </div>
