@@ -17,7 +17,7 @@ div#highScore {
     margin: auto;
     padding: 0;
 }
-
+/*
 div#sizeError {
     color: white;
     text-align: center;
@@ -27,12 +27,10 @@ div#sizeError {
     padding-bottom: 15px;
     border: 1px solid white;
 }
+*/
     
 h2 {
     font-family: "Lucida Console", Monaco, monospace;
-}    
-
-h1 {
     color: white;
     text-align: center;
     font-family: "Lucida Console", Monaco, monospace;
