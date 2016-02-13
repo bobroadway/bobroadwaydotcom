@@ -7,7 +7,7 @@
 var COLUMNS = 26;
 var ROWS = 26;
 var RESOLUTION_LOWER_BOUNDARY = 768;
-var DEFAULT_CELL_SIZE = 20;
+var MAX_CELL_SIZE = 30;
 // Grid coordinate state IDs
 var EMPTY = 0;
 var SNAKE = 1;
@@ -22,6 +22,9 @@ var KEY_LEFT = 37;
 var KEY_UP = 38;
 var KEY_RIGHT = 39;
 var KEY_DOWN = 40;
+var KEY_PAUSE = 32; // space bar
+
+
 
 // Grid
 var grid = {
@@ -108,59 +111,85 @@ function setFood() {
 // Game Objects
 var canvas;
 var context;
+var gamePaused;
 var keystate;
+var touchDown;
+var touchDirection;
 var frames;
 var score;
 var highScore = 0;
 
-
-
 function main() {
-    var windowWidth = $( window ).width();
-    var windowHeight = $( window ).height();
-    var cellSize = Math.floor(windowWidth / COLUMNS);
-    if (cellSize > DEFAULT_CELL_SIZE) {
-        cellSize = DEFAULT_CELL_SIZE;
-    }
-    /*
-    if (windowWidth < RESOLUTION_LOWER_BOUNDARY) {
-        mode = "scaled";
-        // error for a browser window that is too small
-        
-        div = document.createElement("div");
-        div.id = "sizeError";
-        document.body.appendChild(div);
-        div.innerHTML = 
-            "<h2>I'm afraid your browser window is too small to load the game.</h2>"
-            + "<a class='btn btn-primary btn-lg' href='../../projects.php'>Back to Projects</a>";
-        
-    } else {
-        
-    }
-    */
     // create canvas element
     canvas = document.createElement("canvas");
-    // set canvas element's attributes
-    canvas.width = COLUMNS * cellSize;
-    canvas.height = ROWS * cellSize; // 20px per row
-    // set context to a 2d graphic type
-    context = canvas.getContext("2d");
     // place the created canvas element within the body
     document.body.appendChild(canvas);
     
+    var windowWidth = $( window ).width();
+    var windowHeight = $( window ).height() - $( canvas ).offset().top;
+    var minWindowSize = Math.min(windowWidth, windowHeight)
+    var canvasMargin = 12;
+    var cellSize = Math.floor((minWindowSize - (canvasMargin * 2)) / COLUMNS);
+    if (cellSize > MAX_CELL_SIZE) {
+        cellSize = MAX_CELL_SIZE;
+    }
+
+    // set canvas element's attributes
+    canvas.width = COLUMNS * cellSize;
+    canvas.height = ROWS * cellSize;
+    // set context to a 2d graphic type
+    context = canvas.getContext("2d");
+   
     // score font
     context.font = "20px Courier New";
     
     // initialize animation state
     frames = 0;
+    gamePaused = false;
     keystate = {};
+    touchDown = false;
     
-    // Controlling the snake
+    // Controlling the snake with keyboard
     document.addEventListener("keydown", function(event) {
         keystate[event.keyCode] = true;
+        if (keystate[KEY_PAUSE]) gamePaused = !gamePaused;
     });
     document.addEventListener("keyup", function(event) {
         delete keystate[event.keyCode];
+    });
+    
+    // Controlling the snake with touch
+    document.addEventListener("touchstart", function(event) {
+        if (event.touches.length > 1) {
+            gamePaused = !gamePaused;
+            return;
+        }
+        var offset = $( canvas ).offset();
+        var touchX = event.touches[0].pageX;
+        var touchY = event.touches[0].pageY;
+        var canvasTouchX = touchX - offset.left;
+        var canvasTouchY = touchY - offset.top;
+        if (snake.direction === UP || snake.direction === DOWN) {
+            // if touch x < snake x -- go left!
+            if (canvasTouchX < snake.last.x * cellSize) { 
+                touchDirection = LEFT;
+            } else {
+                touchDirection = RIGHT;
+            }
+        }
+        if (snake.direction === LEFT || snake.direction === RIGHT) {
+            // if touch y < snake y -- go up!
+            if (canvasTouchY < snake.last.y * cellSize) {
+                touchDirection = UP;
+            } else {
+                touchDirection = DOWN;
+            }
+        }
+        touchDown = true;
+    });
+    
+    document.addEventListener("touchend", function(event) {
+        touchDown = false;
     });
     
     // start animation
@@ -200,12 +229,19 @@ function update() {
     // increment frames
     frames++;
     // set snake direction from key inputs, can not set new direction if opposite
-    if (keystate[KEY_LEFT] && snake.direction !== RIGHT) snake.direction = LEFT;
-    if (keystate[KEY_UP] && snake.direction !== DOWN) snake.direction = UP;
-    if (keystate[KEY_RIGHT] && snake.direction !== LEFT) snake.direction = RIGHT;
-    if (keystate[KEY_DOWN] && snake.direction !== UP) snake.direction = DOWN;
-
-    if (frames % 5 === 0) { // every 5 frames
+    if (!gamePaused) {
+        if (keystate[KEY_LEFT] && snake.direction !== RIGHT ) snake.direction = LEFT;
+        if (keystate[KEY_UP] && snake.direction !== DOWN) snake.direction = UP;
+        if (keystate[KEY_RIGHT] && snake.direction !== LEFT) snake.direction = RIGHT;
+        if (keystate[KEY_DOWN] && snake.direction !== UP) snake.direction = DOWN;
+    }
+    
+    // set snake direction from touch
+    if (touchDown) {
+        snake.direction = touchDirection;
+    } 
+    
+    if (frames % 5 === 0 && !gamePaused) { // every 5 frames
         // initialize newX/newY to the most recently added-to-the-front of the grid coordinates
         var newX = snake.last.x;
         var newY = snake.last.y;
@@ -249,12 +285,6 @@ function update() {
             var tail = snake.remove(); 
             // set it to 'empty'
             grid.set(EMPTY, tail.x, tail.y);
-        /*
-            tail.x = newX;
-            tail.y = newY;
-            grid.set(SNAKE, tail.x, tail.y);
-            snake.insert(tail.x, tail.y);
-        */
         }
         // fill the snake ID into the new coordinates (where the snake is next)
         grid.set(SNAKE, newX, newY);
@@ -275,12 +305,15 @@ function draw() {
             switch (grid.get(x, y)) {
                 case EMPTY:
                     context.fillStyle = "white";
+                    if(gamePaused) context.fillStyle = "lightgray";
                     break;
                 case SNAKE:
-                    context.fillStyle = "green";
+                    context.fillStyle = "darkgreen";
+                    if(gamePaused) context.fillStyle = "darkgray";
                     break;
                 case FRUIT:
                     context.fillStyle = "red";
+                    if(gamePaused) context.fillStyle = "black";
                     break;
             }
             // fill square (left x, top y, right to width, down to height)
