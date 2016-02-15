@@ -58,8 +58,8 @@ canvas, #pauseScreen {
     background-color: transparent;
     position: absolute;
     padding: 2px;
-    color: black;
-    text-shadow: 0 0 3px white;
+    color: white;
+    text-shadow: 0 0 5px black;
     z-index: 100;
 }
 
