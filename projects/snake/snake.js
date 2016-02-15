@@ -144,7 +144,7 @@ function main() {
         cellSize = MAX_CELL_SIZE;
     }
 
-    // set canvas element's attributes
+    // set canvas and context element's attributes
     canvas.width = COLUMNS * cellSize;
     canvas.height = ROWS * cellSize;
     context = canvas.getContext("2d");
