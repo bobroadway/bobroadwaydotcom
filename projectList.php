@@ -12,13 +12,13 @@
       <tr>
         <td>Simple PHP Form</td>
         <td><a class="btn btn-primary btn-default"
-               href="projects/FormDemo/createUser.php"
+               href="projects/formdemo/createUser.php"
                role="button">View</a></td>
       </tr>
       <tr>
         <td>Snake Game - Learning Project</td>
         <td><a class="btn btn-primary btn-default"
-               href="projects/Snake/snake.php"
+               href="projects/snake/index.php"
                role="button">View</a></td>
       </tr>
     </table>
