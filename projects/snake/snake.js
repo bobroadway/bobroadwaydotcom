@@ -318,7 +318,7 @@ function update() {
 function draw() {
     // set tile width and height to variables
     var tileWidth = canvas.width/grid.width;
-    var tileHeight = canvas.height/grid.height;
+    var tileHeight = canvas.height/grid.height;   
     
     // looping through entire 2d array, setting color based on ID
     for (var x = 0; x < grid.width; x++) {
@@ -329,11 +329,23 @@ function draw() {
                     if(gamePaused) context.fillStyle = "lightgray";
                     break;
                 case SNAKE:
-                    context.fillStyle = "darkgreen";
+                    var centerX = x * tileWidth;
+                    var centerY = y * tileHeight;
+                    var snakeGradient = context.createRadialGradient(centerX, 
+                        centerY, 1, centerX, centerY, tileWidth*2);
+                    snakeGradient.addColorStop(0, "green");
+                    snakeGradient.addColorStop(1, "black");
+                    context.fillStyle = snakeGradient;
                     if(gamePaused) context.fillStyle = "darkgray";
                     break;
                 case FRUIT:
-                    context.fillStyle = "red";
+                    var centerX = x * tileWidth;
+                    var centerY = y * tileHeight;
+                    var foodGradient = context.createRadialGradient(centerX, 
+                        centerY, 1, centerX, centerY, tileWidth*2);
+                    foodGradient.addColorStop(0, "red");
+                    foodGradient.addColorStop(1, "black");
+                    context.fillStyle = foodGradient;
                     if(gamePaused) context.fillStyle = "black";
                     break;
             }
