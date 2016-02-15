@@ -1,5 +1,5 @@
 /* 
-  CSS Style Sheet for snake.php 
+  CSS Style Sheet for index.php (Snake Game) 
   Author: Bo Broadway Date: 2/11/16 
 */
 
@@ -33,18 +33,38 @@ h2 {
     font-family: "Lucida Console", Monaco, monospace;
     color: white;
     text-align: center;
-    font-family: "Lucida Console", Monaco, monospace;
     padding: 0;
     margin-top: 0;
     margin-bottom: 0;
 }
 
-canvas {
+canvas, #pauseScreen {
     display: block;
+    /* position: absolute; */
     border: 1px solid black;
     margin: auto;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
+    font-family: "Lucida Console", Monaco, monospace;
 }
+
+#canvas-wrap {
+    position: relative;
+}
+
+#pauseScreen {
+    background-color: transparent;
+    position: absolute;
+    padding: 2px;
+    color: black;
+    text-shadow: 0 0 3px white;
+    z-index: 100;
+}
+
+canvas {
+    z-index: 1;
+}
+
+

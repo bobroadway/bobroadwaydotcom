@@ -28,8 +28,9 @@
         include "{$relative}navbar.php";
         include_once("{$relative}analyticsTracking.php"); 
     ?>
-    <div class="container" id="highScore">
-    </div>
+    <div class="container" id="highScore"></div>
+    <div class="container" id="canvas-wrap"></div>
+    
   </body>
 </html>
 

@@ -1,5 +1,5 @@
 /* 
-  JavaScript code for snake.php 
+  JavaScript code for index.php (Snake Game) 
   Author: Bo Broadway Date: 2/11/16 
 */
 
@@ -23,6 +23,12 @@ var KEY_UP = 38;
 var KEY_RIGHT = 39;
 var KEY_DOWN = 40;
 var KEY_PAUSE = 32; // space bar
+
+// Pause Screen Text
+var GAME_CONTROLS = "<p>the game is paused</p>"
+    + "<p>key controls: &#8592; &#8593; &#8594; &#8595<br />"
+    + "touch controls: tap relative to the snake to turn</p>"
+    + "pause/unpause: [spacebar] or 'two-finger tap'</p>";
 
 
 
@@ -110,6 +116,7 @@ function setFood() {
 
 // Game Objects
 var canvas;
+var pauseDiv;
 var context;
 var gamePaused;
 var keystate;
@@ -120,13 +127,16 @@ var score;
 var highScore = 0;
 
 function main() {
-    // create canvas element
+    // create canvas element and overlay div
     canvas = document.createElement("canvas");
-    // place the created canvas element within the body
-    document.body.appendChild(canvas);
+    pauseDiv = document.createElement("div");
+    // place the created canvas within the canvas div
+    document.getElementById("canvas-wrap").appendChild(canvas);
+    document.getElementById("canvas-wrap").appendChild(pauseDiv);
     
+    // determine cell (game tile) size based on screen dimensions
     var windowWidth = $( window ).width();
-    var windowHeight = $( window ).height() - $( canvas ).offset().top;
+    var windowHeight = $( window ).height() - $( canvas ).offset().top - 10;
     var minWindowSize = Math.min(windowWidth, windowHeight)
     var canvasMargin = 12;
     var cellSize = Math.floor((minWindowSize - (canvasMargin * 2)) / COLUMNS);
@@ -137,15 +147,22 @@ function main() {
     // set canvas element's attributes
     canvas.width = COLUMNS * cellSize;
     canvas.height = ROWS * cellSize;
-    // set context to a 2d graphic type
     context = canvas.getContext("2d");
-   
-    // score font
-    context.font = "20px Courier New";
+    context.font = "20px Courier New"; // score font
+    
+    // set pauseScreen's attributes
+    widthString = canvas.width + "px";
+    heightString = canvas.height + "px";
+    //pauseDiv.setAttribute("style", widthString);
+    //pauseDiv.setAttribute("style", heightString);
+    pauseDiv.style.width = canvas.width + "px";
+    pauseDiv.style.height = canvas.height + "px";
+    pauseDiv.id = "pauseScreen";
+    pauseDiv.innerHTML = GAME_CONTROLS;
     
     // initialize animation state
     frames = 0;
-    gamePaused = false;
+    gamePaused = true;
     keystate = {};
     touchDown = false;
     
@@ -199,10 +216,6 @@ function main() {
 
 }
 
-function createCanvas() {
-
-}
-
 function init() {
     score = 0;
     // create grid
@@ -228,6 +241,14 @@ function loop() {
 function update() {
     // increment frames
     frames++;
+    
+    // pause screen visibility
+    if (gamePaused) {
+        pauseDiv.style.visibility = "visible";
+    } else {
+        pauseDiv.style.visibility = "hidden";
+    }
+    
     // set snake direction from key inputs, can not set new direction if opposite
     if (!gamePaused) {
         if (keystate[KEY_LEFT] && snake.direction !== RIGHT ) snake.direction = LEFT;
@@ -324,5 +345,5 @@ function draw() {
     // show score
     context.fillStyle = "black";
     context.fillText("SCORE: " + score, 10, canvas.height-10); // bottom left
-    document.getElementById("highScore").innerHTML = "<h2>HIGH SCORE: " + highScore + "</h2>";
+    document.getElementById("highScore").innerHTML = "<h2>high score: " + highScore + "</h2>";
 }
